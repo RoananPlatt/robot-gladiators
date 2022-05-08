@@ -1,27 +1,3 @@
-// var playerInfo = {
-//   name: window.prompt("What is your robot's name?"),
-//   health: 100,
-//   attack: 10,
-//   money: 10
-// };
-
-//console.log(playerName, playerAttack, playerHealth);
-
-// var enemyInfo = [
-//   {
-//     name: "Roborto",
-//     attack: randomNumber(10, 14)
-//   },
-//   {
-//     name: "Amy Android",
-//     attack: randomNumber(10, 14)
-//   },
-//   {
-//     name: "Robo Trumble",
-//     attack: randomNumber(10, 14)
-//   }
-// ];
-
 var fight = function(enemy) {
 
   while(playerInfo.health > 0 && enemy.health > 0) {
@@ -153,8 +129,19 @@ var randomNumber = function(min, max) {
   return value;
 };
 
+var getPlayerName = function() {
+  var name = "";
+
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
