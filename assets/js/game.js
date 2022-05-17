@@ -18,6 +18,8 @@ var fightOrSkip = function() {
       window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
       // subtract money from playerMoney for skipping
       playerInfo.playerMoney = playerInfo.money - 10;
+      // return true if player wants to leave
+      return true;
       shop();
     }
   }
@@ -27,7 +29,10 @@ var fight = function(enemy) {
 
   while(playerInfo.health > 0 && enemy.health > 0) {
 
-    fightOrSkip(); // <-- Replace code with this function call
+    if (fightOrSkip()) {
+      //if true, leave fight by breaking loop
+      break;
+    }
 
     // remove enemy's health by subtracting the amount set in the playerAttack variable
     var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
